@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AG Telecomunicaciones · Estudio de diseño</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Noto+Sans:wght@300;400;500;600&display=swap');
+
+    :root {
+      --color-primary: #0759ab;
+      --color-secondary: #3cae2e;
+      --color-accent: #f24d17;
+      --color-accent-yellow: #eab00e;
+      --color-bg: #fcfcfc;
+      --color-surface: #ffffff;
+      --color-muted: #666;
+      --color-text: #222;
+      --color-border: #c9cdbd;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Noto Sans", Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .header-inner {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Exo 2", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .logo img {
+      height: 130px;
+      width: auto;
+      display: block;
+    }
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      font-family: "Exo 2", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: #fff;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent-yellow);
+      transition: width .2s ease;
+    }
+
+    nav a:hover::after { width: 100%; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: 5rem 0 4.5rem;
+      color: #fff;
+      text-align: center;
+      background: 
+        linear-gradient(120deg, rgba(7,89,171,0.65), rgba(60,174,46,0.55)),
+        url("img/hero.jpg") center center/cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent);
+      opacity: .4;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: "Exo 2", sans-serif;
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      max-width: 700px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+    }
+
+    .hero-title span {
+      color: var(--color-accent-yellow);
+    }
+
+    .hero-text {
+      max-width: 650px;
+      font-size: 0.98rem;
+      color: #f6f6f6;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+
+    /* SECCIONES */
+    section { padding: 3rem 0; }
+
+    .section-title {
+      font-family: "Exo 2", sans-serif;
+      text-align: center;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      margin-bottom: 1.2rem; /* AJUSTADO */
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    /* VALORES */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .value-card {
+      background: var(--color-surface);
+      border-radius: 1.2rem;
+      padding: 1.6rem 1.4rem;
+      text-align: center;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .value-title {
+      font-family: "Exo 2", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
+      color: var(--color-primary);
+    }
+
+    .value-text {
+      font-size: 0.92rem;
+      color: var(--color-muted);
+    }
+
+    /* ÁREAS DE TRABAJO */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .area-card {
+      background: var(--color-surface);
+      border-radius: 1rem;
+      border: 1px solid var(--color-border);
+      padding: 1.1rem 1.4rem;
+      text-align: center;
+      transition: .2s;
+    }
+
+    .area-card:hover {
+      transform: translateY(-1px);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px rgba(7,89,171,0.12);
+    }
+
+    .area-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+      color: var(--color-accent);
+    }
+
+    .area-title {
+      font-family: "Exo 2", sans-serif;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: .06em;
+      margin-bottom: 0.3rem;
+    }
+
+    .area-text {
+      font-size: 0.92rem;
+      color: var(--color-muted);
+    }
+
+    /* SOBRE EL ESTUDIO */
+    .about-block {
+      max-width: 800px;
+      margin: 3rem auto 0 auto;
+      background: var(--color-surface);
+      border-radius: 1.2rem;
+      padding: 2rem 1.8rem;
+      border: 1px solid var(--color-border);
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .about-block p {
+      font-size: 0.96rem;
+    }
+
+    footer {
+      background: var(--color-primary);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-logo {
+      height: 130px;
+      width: auto;
+      display: block;
+      margin: 0 auto .75rem;
+    }
+
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.7rem; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+      @media (max-width: 640px) { .logo img { height: 130px; } }
+    .hero-media { display: none !important; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="Ir a Inicio"><img src="img/logo.png" alt="AG Telecomunicaciones"></a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre.html">Sobre nosotros</a></li>
+        <li><a href="proyectos.html">Nuestros Proyectos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1 class="hero-title">
+        Diseñamos experiencias visuales con <span>identidad</span>.
+      </h1>
+      <p class="hero-text">
+        Somos un estudio de diseño enfocado en crear proyectos visuales sólidos, funcionales y coherentes,
+        combinando creatividad, tecnología y estrategia.
+      </p>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Nuestros valores</h2>
+
+      <div class="values-grid">
+        <article class="value-card">
+          <div class="value-title">Ética</div>
+          <p class="value-text">Trabajamos desde el respeto, la honestidad y la coherencia.</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-title">Compromiso</div>
+          <p class="value-text">Nos implicamos en cada proyecto cuidando procesos y plazos.</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-title">Responsabilidad</div>
+          <p class="value-text">Acompañamos cada proyecto con seriedad y actitud profesional.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREAS DE TRABAJO -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Nuestras Áreas de Trabajo</h2>
+      <p class="section-subtitle">Estas son nuestras competencias.</p>
+
+      <div class="areas-grid">
+        <article class="area-card">
+          <div class="area-icon">🎨</div>
+          <div class="area-title">Diseño gráfico</div>
+          <p class="area-text">Soluciones visuales para identidad y comunicación.</p>
+        </article>
+
+        <article class="area-card">
+          <div class="area-icon">📚</div>
+          <div class="area-title">Diseño editorial</div>
+          <p class="area-text">Maquetación de publicaciones impresas y digitales.</p>
+        </article>
+
+        <article class="area-card">
+          <div class="area-icon">✏️</div>
+          <div class="area-title">Ilustración</div>
+          <p class="area-text">Ilustraciones aplicadas a diferentes soportes.</p>
+        </article>
+
+        <article class="area-card">
+          <div class="area-icon">🎬</div>
+          <div class="area-title">Animación</div>
+          <p class="area-text">Piezas animadas para proyectos audiovisuales.</p>
+        </article>
+
+        <article class="area-card">
+          <div class="area-icon">📹</div>
+          <div class="area-title">Postproducción de vídeo</div>
+          <p class="area-text">Edición y tratamiento visual de vídeo.</p>
+        </article>
+
+        <article class="area-card">
+          <div class="area-icon">📁</div>
+          <div class="area-title">Maquetación de proyectos</div>
+          <p class="area-text">Presentaciones y documentos con acabado profesional.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE EL ESTUDIO -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Sobre nuestro estudio de diseño</h2>
+      <p class="section-subtitle">Un equipo que nació en la universidad y creció en los proyectos.</p>
+
+      <div class="about-block">
+        <p>
+          Somos cuatro diseñadores que nos conocimos estudiando y descubrimos que compartíamos forma de trabajar,
+          inquietudes y ganas de crear. A partir de ahí decidimos unir fuerzas para dar vida a un estudio en el que
+          cada proyecto se entiende como un diálogo con el cliente: escuchamos, analizamos y proponemos soluciones
+          visuales pensadas para cada caso.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <img class="footer-logo" src="img/logo.png" alt="AG Telecomunicaciones"><br>
+  Estudio online de diseño establecido en España<br>
+  © 2026 AG Telecomunicaciones. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+

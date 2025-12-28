@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre nosotros · AG Telecomunicaciones</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Noto+Sans:wght@300;400;500;600&display=swap');
+
+    :root {
+      --color-primary: #0759ab;
+      --color-secondary: #3cae2e;
+      --color-accent: #f24d17;
+      --color-accent-yellow: #eab00e;
+      --color-bg: #fcfcfc;
+      --color-surface: #ffffff;
+      --color-muted: #666;
+      --color-text: #222;
+      --color-border: #c9cdbd;
+      --card-bg: #e4ffe4;
+      --max-width: 1200px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Noto Sans", Arial, sans-serif;
+      background: #fff;
+      color: var(--color-text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .header-inner {
+      height: 150px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 130px;
+      width: auto;
+      display: block;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      font-family: "Exo 2", sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: #fff;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent-yellow);
+      transition: width .2s;
+    }
+
+    nav a:hover::after { width: 100%; }
+
+    .breadcrumb {
+      font-size: 0.9rem;
+      margin: 1rem 0 2rem;
+      color: var(--color-muted);
+    }
+
+    .breadcrumb a {
+      text-decoration: underline;
+      color: var(--color-muted);
+    }
+
+    h1 {
+      font-family: "Exo 2", sans-serif;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-bottom: .5rem;
+      color: var(--color-primary);
+    }
+
+    .about-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      color: var(--color-muted);
+    }
+
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+      align-items: start;
+    }
+
+    .profile-card {
+      background: var(--card-bg);
+      border-radius: 1.3rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      align-self: start;
+    }
+
+    .profile-photo {
+      width: 210px;
+      height: 210px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0 auto 1rem;
+      background: #ffffff;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .profile-name {
+      font-family: "Exo 2", sans-serif;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: .06em;
+      font-size: 1.25rem;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+
+    .profile-toggle {
+      font-family: "Exo 2", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      border-radius: 999px;
+      border: 1px solid var(--color-primary);
+      background: #fff;
+      padding: .6rem 1.25rem;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .profile-toggle:hover {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .profile-bio {
+      margin-top: 1rem;
+      display: none;
+      text-align: center;
+    }
+
+    .profile-bio.open { display: block; }
+
+    footer {
+      background: var(--color-primary);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    .footer-logo {
+      height: 130px;
+      width: auto;
+      display: block;
+      margin: 0 auto .75rem;
+    }
+
+    @media (max-width: 1024px) {
+      .profiles-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .logo img { height: 130px; }
+      .profiles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="logo" href="index.html">
+      <img src="img/logo.png" alt="AG Telecomunicaciones">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre.html">Sobre nosotros</a></li>
+        <li><a href="proyectos.html">Nuestros Proyectos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="breadcrumb">
+    <a href="index.html">Inicio</a> › Sobre nosotros
+  </div>
+
+  <h1>Sobre nuestro estudio de diseño</h1>
+
+  <p class="about-intro">
+    Somos un estudio formado por cuatro diseñadores que se conocieron en la universidad y decidieron unir
+    sus habilidades para crear proyectos visuales coherentes, funcionales y con identidad propia.
+  </p>
+
+  <div class="profiles-grid">
+
+    <!-- LEONARDO -->
+    <article class="profile-card">
+      <div class="profile-photo">
+        <img src="img/sobre/leonardo.png">
+      </div>
+      <div class="profile-name">Leonardo</div>
+      <button class="profile-toggle">Descubre más sobre mí</button>
+      <div class="profile-bio">
+        <p>
+          Soy Leonardo, diseñador digital y apasionado por la postproducción de vídeo, foto y audio.
+          Empecé a experimentar de forma autodidacta durante la adolescencia, creando pequeñas piezas audiovisuales
+          mediante edición y efectos digitales.
+        </p>
+        <p>
+          Me interesa especialmente el ritmo, el montaje y el tratamiento de la imagen, buscando siempre un equilibrio
+          entre creatividad y claridad visual.
+        </p>
+      </div>
+    </article>
+
+    <!-- ALBA -->
+    <article class="profile-card">
+      <div class="profile-photo">
+        <img src="img/sobre/alba.png"
+             style="object-position: center 36%; transform: scale(1.38);">
+      </div>
+      <div class="profile-name">Alba</div>
+      <button class="profile-toggle">Descubre más sobre mí</button>
+      <div class="profile-bio">
+        <p>
+          Soy Alba, diseñadora gráfica influenciada por el imaginario visual que me ha acompañado desde la infancia.
+          Los dibujos animados, los juguetes y la cultura visual contemporánea han marcado mi manera de entender
+          el color, la forma y la estética.
+        </p>
+        <p>
+          Mi formación en Bellas Artes y mi paso por el conservatorio, donde estudié violonchelo, han influido en mi
+          sensibilidad estética y en mi forma de entender el ritmo y la composición. Concibo el diseño como un medio
+          para contar historias, buscando coherencia e identidad visual.
+        </p>
+      </div>
+    </article>
+
+    <!-- LAURA -->
+    <article class="profile-card">
+      <div class="profile-photo">
+        <img src="img/sobre/laura.png"
+             style="object-position: center 0%; transform: scale(1.50) translateY(42px) translateX(20px);">
+      </div>
+      <div class="profile-name">Laura</div>
+      <button class="profile-toggle">Descubre más sobre mí</button>
+      <div class="profile-bio">
+        <p>
+          Soy Laura. Entiendo la imagen como relato: cada encuadre guarda una intención y cada corte decide cómo se
+          cuenta una historia. Mi camino en el diseño digital y la producción audiovisual nace de esa idea, uniendo
+          técnica y sensibilidad para construir una narrativa visual coherente.
+        </p>
+        <p>
+          He trabajado en distintas fases del proceso audiovisual, desde la planificación y el set hasta la edición y
+          la postproducción. Me interesan el ritmo, la identidad y el significado detrás de lo visible, buscando piezas
+          con intención, claridad y una voz humana.
+        </p>
+      </div>
+    </article>
+
+    <!-- JIE -->
+    <article class="profile-card">
+      <div class="profile-photo">
+        <img src="img/sobre/jie.png"
+             style="object-position: center 18%; transform: scale(1.25);">
+      </div>
+      <div class="profile-name">Jie</div>
+      <button class="profile-toggle">Descubre más sobre mí</button>
+      <div class="profile-bio">
+        <p>
+          Soy Jie, diseñadora gráfica con ganas infinitas de aprender, experimentar y encontrar mi camino. Me inspira la
+          idea del “hilo rojo”: ese impulso que conecta sueños y creatividad, y que siempre me guía de vuelta a crear.
+        </p>
+        <p>
+          He explorado formatos digitales, especialmente vídeo y edición para redes sociales, trabajando la narrativa
+          visual, el ritmo y la comunicación emocional. Me definen una actitud positiva, curiosidad constante y la
+          importancia de desconectar a veces para que las ideas respiren y crezcan.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<footer>
+  <img class="footer-logo" src="img/logo.png" alt="AG Telecomunicaciones"><br>
+  Estudio online de diseño establecido en España<br>
+  © 2026 AG Telecomunicaciones. Todos los derechos reservados.
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.profile-card');
+
+    cards.forEach(card => {
+      const btn = card.querySelector('.profile-toggle');
+      const bio = card.querySelector('.profile-bio');
+
+      btn.addEventListener('click', () => {
+        const wasOpen = bio.classList.contains('open');
+
+        document.querySelectorAll('.profile-bio.open').forEach(openBio => {
+          openBio.classList.remove('open');
+        });
+
+        if (!wasOpen) {
+          bio.classList.add('open');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

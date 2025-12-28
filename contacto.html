@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto · AG Telecomunicaciones</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Noto+Sans:wght@300;400;500;600&display=swap');
+
+    :root {
+      --color-primary: #0759ab;
+      --color-secondary: #3cae2e;
+      --color-accent: #f24d17;
+      --color-accent-yellow: #eab00e;
+      --color-bg: #fcfcfc;
+      --color-surface: #ffffff;
+      --color-muted: #666666;
+      --color-text: #222222;
+      --color-border: #c9cdbd;
+      --max-width: 1200px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Noto Sans", Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .header-inner {
+      height: 150px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Exo 2", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 1.05rem;
+    }
+
+    .logo img {
+      height: 130px;
+      width: auto;
+      display: block;
+    }
+
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      font-family: "Exo 2", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: #fff;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent-yellow);
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover::after { width: 100%; }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      font-size: 0.9rem;
+      margin: 1rem 0 2rem;
+      color: var(--color-muted);
+    }
+
+    .breadcrumb a {
+      color: var(--color-muted);
+      text-decoration: underline;
+    }
+
+    /* TÍTULO + INTRO */
+    h1 {
+      text-align: center;
+      margin: 1rem 0 0.5rem;
+      font-family: "Exo 2", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary);
+    }
+
+    .contact-intro {
+      max-width: 700px;
+      margin: 0 auto 2.5rem auto;
+      text-align: center;
+      color: var(--color-muted);
+      font-size: 0.97rem;
+    }
+
+    /* BLOQUES DE CONTACTO */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-block {
+      background: var(--color-surface);
+      border-radius: 1.2rem;
+      padding: 2rem 1.8rem;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .contact-block h2 {
+      font-family: "Exo 2", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--color-primary);
+      text-align: left;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-icon {
+      font-size: 1.2rem;
+      width: 1.4rem;
+      text-align: center;
+    }
+
+    .contact-item a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .contact-item a:hover {
+      color: var(--color-primary);
+    }
+
+    .social-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .social-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .social-icon {
+      font-size: 1.15rem;
+      width: 1.4rem;
+      text-align: center;
+    }
+
+    .social-item a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .social-item a:hover {
+      color: var(--color-primary);
+    }
+
+    .contact-note {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      margin-top: 1.5rem;
+    }
+
+    footer {
+      background: var(--color-primary);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    .footer-logo {
+      height: 130px;
+      width: auto;
+      display: block;
+      margin: 0 auto .75rem;
+    }
+
+
+    @media (max-width: 900px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) { .logo img { height: 130px; } }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="Ir a Inicio"><img src="img/logo.png" alt="AG Telecomunicaciones"></a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre.html">Sobre nosotros</a></li>
+        <li><a href="proyectos.html">Nuestros Proyectos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="breadcrumb">
+    <a href="index.html">Inicio</a> › Contacto
+  </div>
+
+  <h1>Contacto</h1>
+
+  <p class="contact-intro">
+    Si tienes un proyecto en mente que quieras hacer realidad, cuenta con nosotros. Estamos aquí para apoyarte
+    y ayudarte a conseguir tus metas y objetivos. Si quieres contactar con nuestro estudio, estas son nuestras
+    vías de contacto:
+  </p>
+
+  <section class="contact-wrapper">
+
+    <!-- BLOQUE: TELÉFONOS Y EMAIL -->
+    <article class="contact-block">
+      <h2>Datos de contacto</h2>
+
+      <ul class="contact-list">
+        <li class="contact-item">
+          <span class="contact-icon">📞</span>
+          <span>Teléfono fijo: <a href="tel:+34912345678">+34 912 34 56 78</a></span>
+        </li>
+        <li class="contact-item">
+          <span class="contact-icon">📱</span>
+          <span>Teléfono móvil: <a href="tel:+34612345678">+34 612 34 56 78</a></span>
+        </li>
+        <li class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <span>Email: <a href="mailto:contacto@agtelecomunicaciones.com">contacto@agtelecomunicaciones.com</a></span>
+        </li>
+      </ul>
+
+      <p class="contact-note">
+        Atendemos de lunes a viernes en horario de oficina (L–V · 9:00–14:00 / 16:00–19:00).  
+        Si nos escribes fuera de ese horario, responderemos tu mensaje lo antes posible.
+      </p>
+    </article>
+
+    <!-- BLOQUE: REDES SOCIALES -->
+    <article class="contact-block">
+      <h2>Redes sociales</h2>
+
+      <ul class="social-list">
+        <li class="social-item">
+          <span class="social-icon">
+            <!-- Instagram (color) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" role="img" aria-label="Instagram" style="display:block;">
+              <defs>
+                <linearGradient id="igGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#f58529"/>
+                  <stop offset="50%" stop-color="#dd2a7b"/>
+                  <stop offset="100%" stop-color="#8134af"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#igGrad)" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.4A2.9 2.9 0 1 1 14.9 12 2.9 2.9 0 0 1 12 14.9zM17.8 6.2a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
+            </svg>
+          </span>
+          <span>
+            Instagram: <a href="https://www.instagram.com/agtelecomunicaciones" target="_blank">@agtelecomunicaciones</a>
+          </span>
+        </li>
+
+        <li class="social-item">
+          <span class="social-icon">
+            <!-- YouTube (color) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" role="img" aria-label="YouTube" style="display:block;">
+              <path fill="#ff0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.5 15.5v-7l6 3.5-6 3.5z"/>
+            </svg>
+          </span>
+          <span>
+            YouTube: <a href="https://www.youtube.com/@agtelecomunicaciones" target="_blank">AG Telecomunicaciones Studio</a>
+          </span>
+        </li>
+
+        <li class="social-item">
+          <span class="social-icon">
+            <!-- X (color) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" role="img" aria-label="X" style="display:block;">
+              <path fill="#000000" d="M18.9 2H22l-7.2 8.2L23.4 22h-6.7l-5.2-6.8L5.5 22H2.4l7.7-8.7L.6 2h6.9l4.7 6.2L18.9 2z"/>
+            </svg>
+          </span>
+          <span>
+            X: <a href="https://x.com/agtelecom_studio" target="_blank">@agtelecom_studio</a>
+          </span>
+        </li>
+      </ul>
+
+      <p class="contact-note">
+        En nuestras redes compartimos avances de proyectos, procesos de trabajo y pequeñas piezas experimentales.
+      </p>
+    </article>
+
+  </section>
+
+</main>
+
+<footer>
+  <img class="footer-logo" src="img/logo.png" alt="AG Telecomunicaciones"><br>
+  Estudio online de diseño establecido en España<br>
+  © 2026 AG Telecomunicaciones. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>
+
+
+

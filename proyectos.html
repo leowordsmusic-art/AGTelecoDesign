@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos · AG Telecomunicaciones</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Noto+Sans:wght@300;400;500;600&display=swap');
+
+    :root {
+      --color-primary: #0759ab;
+      --color-secondary: #3cae2e;
+      --color-accent: #f24d17;
+      --color-accent-yellow: #eab00e;
+      --color-bg: #fcfcfc;
+      --color-surface: #ffffff;
+      --color-muted: #666666;
+      --color-text: #222222;
+      --color-border: #c9cdbd;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Noto Sans", Arial, sans-serif;
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 150px;
+    }
+
+    .logo img {
+      height: 130px;
+      width: auto;
+      display: block;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      font-family: "Exo 2", sans-serif;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    nav a {
+      color: #fff;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent-yellow);
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover::after { width: 100%; }
+
+    .breadcrumb {
+      font-size: 0.9rem;
+      margin: 1rem 0 2rem;
+      color: var(--color-muted);
+    }
+
+    .breadcrumb a {
+      color: var(--color-muted);
+      text-decoration: underline;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 1rem 0;
+      font-family: "Exo 2", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary);
+    }
+
+    .projects-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      color: var(--color-muted);
+      font-size: 0.95rem;
+    }
+
+    .projects-grid {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+    }
+
+    .projects-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      position: relative;
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 1rem;
+      background: #000;
+      cursor: pointer;
+      transition: 0.25s;
+      overflow: hidden;
+      border: 1px solid transparent;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 0 12px rgba(242,77,23,0.6), 0 0 25px rgba(242,77,23,0.4);
+      border-color: var(--color-accent);
+    }
+
+    .project-image img,
+    .project-image video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      object-position: center center;
+    }
+
+    .project-description {
+      background: var(--color-surface);
+      padding: 0;
+      display: none;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .project-description.open {
+      display: block;
+      padding: 1rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 2rem 0;
+    }
+
+    .footer-logo {
+      height: 130px;
+      display: block;
+      margin: 0 auto .75rem;
+    }
+
+    @media (max-width: 1024px) {
+      .projects-grid { flex-direction: column; }
+      .project-card { width: 100%; }
+    }
+
+    @media (max-width: 640px) {
+      .logo img { height: 130px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="logo" href="index.html">
+      <img src="img/logo.png" alt="AG Telecomunicaciones">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre.html">Sobre nosotros</a></li>
+        <li><a href="proyectos.html">Nuestros Proyectos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="breadcrumb">
+    <a href="index.html">Inicio</a> › Nuestros Proyectos
+  </div>
+
+  <h1>Nuestros proyectos</h1>
+
+  <p class="projects-intro">
+    A continuación puedes ver algunos de los proyectos realizados por nuestro equipo.
+    Haz clic en cada proyecto para desplegar su descripción.
+  </p>
+
+  <div class="projects-grid">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="projects-column">
+
+      <!-- PROYECTO 1 -->
+      <article class="project-card">
+        <div class="project-image">
+          <video autoplay muted loop playsinline>
+            <source src="img/proyectos/cuadrado.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-description">
+          <p>
+            Animación cartoon donde un personaje exagera sus expresiones: ojos muy abiertos, lengua fuera
+            y movimientos vivos. Este ejercicio explora principios fundamentales de animación como
+            anticipación, squash & stretch y exageración.
+          </p>
+        </div>
+      </article>
+
+      <!-- PROYECTO 3 (CALENDARIO) -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="img/proyectos/calendario-adviento-bosco.jpg" alt="">
+        </div>
+        <div class="project-description">
+          <p>
+            Diseño de un calendario de Adviento premium para Godiva, inspirado en el tríptico
+            <em>El jardín de las delicias</em> de El Bosco. Se adapta la obra al formato de caja
+            desplegable, respetando su composición original mientras se optimiza para un producto
+            comercial y experiencial.
+          </p>
+        </div>
+      </article>
+
+      <!-- PROYECTO 5 (COLLAGE NANAMI / GODZILLA) -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="img/proyectos/proyecto-demonio.png" alt="">
+        </div>
+        <div class="project-description">
+          <p>
+            Collage digital que combina varios elementos de la cultura visual japonesa. La composición
+            integra al personaje Nanami en primer plano, acompañado de Godzilla —representado con una máscara
+            estilizada— y un fondo urbano de estética japonesa. El proyecto explora la mezcla de ilustración,
+            cultura pop y paisajismo urbano mediante técnicas de integración digital.
+          </p>
+        </div>
+      </article>
+
+      <!-- PROYECTO 7 (CARNAVAL MIGUELTURRA) -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="img/proyectos/miguelturra-carnaval.jpg" alt="">
+        </div>
+        <div class="project-description">
+          <p>
+            Cartel realizado para el Carnaval de Miguelturra (Ciudad Real, España) del año 2023. El diseño emplea
+            una máscara central de estilo vectorial y una paleta muy viva para transmitir el ambiente festivo, con
+            tipografía lúdica y detalles decorativos tipo confeti que refuerzan la identidad del evento.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div class="projects-column">
+
+      <!-- PROYECTO 2 -->
+      <article class="project-card">
+        <div class="project-image">
+          <video autoplay muted loop playsinline>
+            <source src="img/proyectos/skate.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-description">
+          <p>
+            Animación de un skater realizando un truco con un estilo cartoon. Se exploran principios como
+            timing, arco de movimiento, anticipación y follow-through para dar sensación de peso y fluidez.
+          </p>
+        </div>
+      </article>
+
+      <!-- PROYECTO 4 (VINILO K-POP) -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="img/proyectos/loosemble-vinilo.png" alt="">
+        </div>
+        <div class="project-description">
+          <p>
+            Diseño de portada de vinilo inspirado en el estilo visual del K-Pop. Se emplea duotono,
+            textura de trama y composición retro combinada con tipografías display contemporáneas.
+          </p>
+        </div>
+      </article>
+
+      <!-- PROYECTO 6 (CENTRO COMERCIAL EN UNA NEVERA) -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="img/proyectos/proyecto-caja.png" alt="">
+        </div>
+        <div class="project-description">
+          <p>
+            Ilustración conceptual en la que un frigorífico se transforma en un centro comercial a varios niveles.
+            Cada balda funciona como una planta distinta, integrando espacios, pasillos y elementos arquitectónicos
+            dentro de la estructura del electrodoméstico. El proyecto juega con la perspectiva isométrica y el
+            contraste entre objetos cotidianos y entornos urbanos, creando una composición imaginativa y narrativa.
+          </p>
+        </div>
+      </article>
+
+      <!-- PROYECTO 8 (DIAGRAMA CIRCULAR) -->
+      <article class="project-card">
+        <div class="project-image">
+          <img src="img/proyectos/diagrama-circular.jpg" alt="">
+        </div>
+        <div class="project-description">
+          <p>
+            Obra procesual titulada “Reproducción Anímica”, que registra las reproducciones de cantantes según el
+            estado anímico de la persona durante un período de tiempo. La visualización contempla cinco emociones y
+            siete artistas: los datos fueron arrojados por iTunes y recopilados a lo largo de una semana, mostrando
+            las relaciones entre emoción y escucha mediante un diagrama circular.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <img class="footer-logo" src="img/logo.png" alt="AG Telecomunicaciones"><br>
+  Estudio online de diseño establecido en España<br>
+  © 2026 AG Telecomunicaciones. Todos los derechos reservados.
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.project-card');
+
+    cards.forEach(card => {
+      const desc = card.querySelector('.project-description');
+
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.project-description.open').forEach(other => {
+          if (other !== desc) other.classList.remove('open');
+        });
+
+        desc.classList.toggle('open');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
+
