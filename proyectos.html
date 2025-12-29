@@ -187,7 +187,37 @@
     @media (max-width: 640px) {
       .logo img { height: 130px; }
     }
-  </style>
+  
+    .reel-cta {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    .reel-cta-text {
+      font-family: "Exo 2", sans-serif;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .reel-video-wrap {
+      width: min(420px, 100%);
+      margin: 0 auto;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #000;
+    }
+
+    .reel-video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+</style>
 </head>
 
 <body>
@@ -220,6 +250,20 @@
     A continuación puedes ver algunos de los proyectos realizados por nuestro equipo.
     Haz clic en cada proyecto para desplegar su descripción.
   </p>
+
+
+  <!-- REEL INSTAGRAM -->
+  <section class="reel-cta">
+    <p class="reel-cta-text">¡Síguenos en Instagram para ver más reels como este!</p>
+    <div class="reel-video-wrap">
+      <video class="reel-video" controls playsinline preload="metadata">
+        <source src="img/proyectos/reel-ag.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de vídeo.
+      </video>
+    </div>
+  </section>
+
+
 
   <div class="projects-grid">
 
@@ -380,6 +424,8 @@
 
 </body>
 </html>
+
+
 
 
 
